@@ -5,7 +5,7 @@ from common.abstract_executor import AbstractExecutor
 from file_name_check import file_name_check
 import importlib
 
-key = ""
+key = input("Enter your API key: ")
    
 
 if __name__ == "__main__":
@@ -64,3 +64,4 @@ if __name__ == "__main__":
     # Print the coverage date
     print("Coverage data:")
     print(coverage_data)
+    print('--')
