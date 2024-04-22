@@ -38,7 +38,7 @@ def generate_inital_tests_with_llm(model, function_to_test):
 
     # Write the test function to the file
     # llm_generator.write_test_to_file(test, filename=filename)
-    llm_generator.write_test_to_file('\n'.join(test.split('\n')[:]), filename=filename)
+    llm_generator.write_test_to_file('\n'.join(test.split('\n')[:-2]), filename=filename)
 
     # Get the module name and function name from the filename
     module_name = filename.split(".")[0]
