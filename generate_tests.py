@@ -8,6 +8,7 @@ from to_test.strong_password_checker import strong_password_checker
 # from to_test.basic_calculator import calculate
 import importlib
 from genetic_algorithm1 import genetic_algorithm
+from genetic_algorithm2 import genetic_algorithm as genetic_algorithm2
 from genetic_algorithm1 import extract_assertions
 from to_test.strong_password_checker import strong_password_checker 
 
@@ -95,7 +96,10 @@ if __name__ == "__main__":
         
         test2, coverage_data2,test_text2 = generate_inital_tests_with_llm(model, function_to_test)
 
-        best_chromosome=genetic_algorithm(test_text+test_text2)
+        if function_to_test.__name__ == 'number_to_words':
+            best_chromosome=genetic_algorithm(test_text+test_text2)
+        elif function_to_test.__name__ == 'strong_password_checker':
+            best_chromosome=genetic_algorithm2(test_text+test_text2)
         if not best_chromosome:
             formatted_assertions = "assert False, 'No assertions generated'"
         else:
